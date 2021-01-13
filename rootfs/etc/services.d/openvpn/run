@@ -22,8 +22,6 @@ exec s6-setuidgid "$(id -u openvpn):$(id -g openvpn)" openvpn \
     --iproute /usr/sbin/ip-su \
     --dev tun0 --persist-tun \
     --config "${OPENVPN_CONFIG_FILE}" \
-    --auth-user-pass "${CREDENTIALS_FILE}" \
-    --auth-nocache \
     --pull-filter ignore "dhcp-option DNS" \
     --dhcp-option DNS "${DNS}" \
     --redirect-gateway def1 bypass-dhcp \
